@@ -21,9 +21,9 @@ class ProductManagerTest {
         repository.save(second);
       repository.save(third);
         Product[] expected = new Product[]{first};
-        Product[] actual = manager.searchBy("A");
+        Product[] actual = manager.searchBy("1");
 
-        assertEquals(expected,actual);
+        assertArrayEquals(expected,actual);
 
 
 
