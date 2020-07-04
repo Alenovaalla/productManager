@@ -8,18 +8,23 @@ import ru.netology.repository.ProductRepository;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProductManagerTest {
-    ProductRepository repository= new ProductRepository();
-
+     ProductRepository repository= new ProductRepository();
+     Product first = new Product(1, "A", 1);
+    Product second = new Product(2, "B", 2);
+    Product third = new Product(3, "C", 2);
+    Product[] products = new Book[0];
     @Test
 
-    public void shouldSearchBookByName () {
+    public void shouldSearchBookById () {
         ProductManager manager= new ProductManager(repository);
-        Product first = new Book();
-
-
-
+        repository.save(first);
+        repository.save(second);
+      repository.save(third);
+        Product[] expected = new Product[]{first};
         Product[] actual = manager.searchBy("A");
-        Product[] expected = new Book[]{};
+
+        assertEquals(expected,actual);
+
 
 
     }
