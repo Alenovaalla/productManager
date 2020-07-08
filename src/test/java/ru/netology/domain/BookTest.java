@@ -1,14 +1,13 @@
-package ru.netology.manager;
+package ru.netology.domain;
 
 import org.junit.jupiter.api.Test;
-import ru.netology.domain.Book;
-import ru.netology.domain.Product;
-import ru.netology.domain.Smartphone;
+import ru.netology.manager.ProductManager;
 import ru.netology.repository.ProductRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ProductManagerTest {
+class BookTest {
+
     ProductRepository repository = new ProductRepository();
     Product first = new Book(1, "A", 5, "Толстой");
     Product second = new Book(2, "B", 2, "Пушкин");
@@ -16,16 +15,16 @@ class ProductManagerTest {
     Product[] products = new Product[]{first, second, third};
 
     @Test
-
-    public void shouldSearchByText() {
+    void shouldMatchesByName() {
         ProductManager manager = new ProductManager(repository);
+        Product book = new Book();
         repository.save(first);
         repository.save(second);
         repository.save(third);
-        Product[] expected = new Product[]{first};
-        Product[] actual = manager.searchBy("A");
+        String text = "A";
+         book.matches("A");
+        assertTrue(true);
 
-        assertArrayEquals(expected, actual);
     }
 
 }
