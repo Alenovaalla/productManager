@@ -18,10 +18,11 @@ public class Book extends Product {
         return author;
     }
 
-    @Override
+
     public boolean matches(String search) {
-        return super.matches(search) || author.equals(search);
+        return author.equalsIgnoreCase(search) || super.matches(search);
     }
+
 
     @Override
     public boolean equals(Object o) {
